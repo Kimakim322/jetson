@@ -78,7 +78,7 @@ int main() {
     printf("Press the ESC key to stop the program\n");
     while(getkey() != 27){
         int distance = sensor->readRangeSingleMillimeters();
-        if (sensor->timeoutOccurred()) {
+        if (false) {
             printf("Sensor timeout Kima!\n");
         } else {
             // If distance > 2000, no return received; Don't print it
