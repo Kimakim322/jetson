@@ -79,7 +79,7 @@ int main() {
     while(getkey() != 27){
         int distance = sensor->readRangeSingleMillimeters();
         if (sensor->timeoutOccurred()) {
-            printf("Sensor timeout!\n");
+            printf("Sensor timeout Kima!\n");
         } else {
             // If distance > 2000, no return received; Don't print it
             if (distance < 2500 ) {
