@@ -82,11 +82,11 @@ int main() {
             printf("Sensor timeout!\n");
         } else {
             // If distance > 2000, no return received; Don't print it
-            if (distance < 2500 ) {
+            //if (distance < 2500 ) {
                 printf("\nDistance: %5d mm ",distance);
-            } else {
-                printf(".");
-            }
+            //} else {
+             //   printf(".");
+            //}
         }
     }
     printf("\n\n") ;
