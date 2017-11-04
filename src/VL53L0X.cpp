@@ -866,14 +866,14 @@ void VL53L0X::stopContinuous(void)
 uint16_t VL53L0X::readRangeContinuousMillimeters(void)
 {
     startTimeout();
-    /*while ((readReg(RESULT_INTERRUPT_STATUS) & 0x07) == 0)
+    while ((readReg(RESULT_INTERRUPT_STATUS) & 0x07) == 0)
     {
         if (checkTimeoutExpired())
         {
             did_timeout = true;
             return 65535;
         }
-    }*/
+    }
 
     // assumptions: Linearity Corrective Gain is 1000 (default);
     // fractional ranging is not enabled
@@ -904,14 +904,14 @@ uint16_t VL53L0X::readRangeSingleMillimeters(void)
 
   // "Wait until start bit has been cleared"
   startTimeout();
-  /*while (readReg(SYSRANGE_START) & 0x01)
+  while (readReg(SYSRANGE_START) & 0x01)
   {
     if (checkTimeoutExpired())
     {
       did_timeout = true;
       return 65535;
     }
-  }*/
+  }
 
   return readRangeContinuousMillimeters();
 }
@@ -948,10 +948,10 @@ bool VL53L0X::getSpadInfo(uint8_t * count, bool * type_is_aperture)
     writeReg(0x94, 0x6b);
     writeReg(0x83, 0x00);
     startTimeout();
-    /*while (readReg(0x83) == 0x00)
+    while (readReg(0x83) == 0x00)
     {
         if (checkTimeoutExpired()) { return false; }
-    }*/
+    }
     writeReg(0x83, 0x01);
     tmp = readReg(0x92);
 
@@ -1079,10 +1079,10 @@ bool VL53L0X::performSingleRefCalibration(uint8_t vhv_init_byte)
     writeReg(SYSRANGE_START, 0x01 | vhv_init_byte); // VL53L0X_REG_SYSRANGE_MODE_START_STOP
 
     startTimeout();
-    /*while ((readReg(RESULT_INTERRUPT_STATUS) & 0x07) == 0)
+    while ((readReg(RESULT_INTERRUPT_STATUS) & 0x07) == 0)
     {
         if (checkTimeoutExpired()) { return false; }
-    }*/
+    }
 
     writeReg(SYSTEM_INTERRUPT_CLEAR, 0x01);
 
