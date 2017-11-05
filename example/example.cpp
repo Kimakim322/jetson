@@ -86,7 +86,7 @@ int main() {
                 printf("\nDistance: %5d mm ",distance);
             //} else {
              //   printf(".");
-            }
+           // }
         //}
     }
     printf("\n\n") ;
