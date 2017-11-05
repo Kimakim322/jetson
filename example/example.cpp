@@ -78,16 +78,16 @@ int main() {
     printf("Press the ESC key to stop the program\n");
     while(getkey() != 27){
         int distance = sensor->readRangeSingleMillimeters();
-        if (sensor->timeoutOccurred()) {
-            printf("Sensor timeout!\n");
-        } else {
+        //if (sensor->timeoutOccurred()) {
+           // printf("Sensor timeout!\n");
+        //} else {
             // If distance > 2000, no return received; Don't print it
-            if (distance < 2500 ) {
+            //if (distance < 2500 ) {
                 printf("\nDistance: %5d mm ",distance);
-            } else {
-                printf(".");
+            //} else {
+             //   printf(".");
             }
-        }
+        //}
     }
     printf("\n\n") ;
     sensor->closeVL53L0X();
